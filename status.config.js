@@ -29,4 +29,27 @@
 // 탐험가형(호기심 많은 예술가) ISFP-A, ISFP-T : 항시 새로운 것을 찾아 시도하거나 도전할 준비가 되어 있는 융통성 있는 성격의 매력 넘치는 예술가형.
 // 탐험가형(모험을 즐기는 사업가) ESTP-A, ESTP-T : 벼랑 끝의 아슬아슬한 삶을 진정으로 즐길 줄 아는 이들로 명석한 두뇌와 에너지, 그리고 뛰어난 직관력을 가지고 있는 유형.
 // 탐험가형(자유로운 영혼의 연예인) ESFP-A, ESFP-T : 주위에 있으며 인생이 지루할 새가 없을 정도로 즉흥적이며 열정과 에너지가 넘치는 연예인형.
-module.exports = {};
+module.exports = {
+  // TODO: collection 구성 생성
+  questionList: []
+  mbtiList: [
+    {
+      // FIXME: 수정 가능성 있음.
+      type: 'MBTI',
+      monsterList: [
+        {
+          name: '',
+          weight: '',
+          stature: '',
+          actionList: [
+            {
+              actions: [],
+              speechs: []
+            }
+          ]
+        }
+      ]
+            
+    }
+  ]
+};
