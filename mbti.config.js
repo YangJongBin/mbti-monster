@@ -31,7 +31,13 @@
 // 탐험가형(자유로운 영혼의 연예인) ESFP-A, ESFP-T : 주위에 있으며 인생이 지루할 새가 없을 정도로 즉흥적이며 열정과 에너지가 넘치는 연예인형.
 module.exports = {
   // TODO: collection 구성 생성
-  questionList: [],
+  testList: [
+    {
+      step: '',
+      type: '에너지 방향',
+      
+    }
+  ],
   environmentList: [],
   foodList: [],
   actionList: [],
