@@ -49,7 +49,8 @@ module.exports = {
               answer: {
                 kr: '',
                 en: ''
-              }
+              },
+              result: ''
             }
           ]
         }
