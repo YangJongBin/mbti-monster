@@ -37,30 +37,30 @@ module.exports = {
     {
       step: '',
       type: '에너지 방향',
-      
     }
   ],
-  environmentList: [],
-  foodList: [],
-  actionList: [],
+  environmentList: [], // TODO: 추후 추가 사항
+  foodList: [], // TODO: 추후 추가 사항
   mbtiList: [
     {
       // FIXME: 수정 가능성 있음.
-      type: 'MBTI',
+      mbti: 'MBTI',
       monsterList: [
         {
-          name: '',
-          weight: '',
-          stature: '',
-          actionList: [
-            {
-              actions: [],
-              speechs: []
-            }
-          ]
+          name: {
+            kr: '',
+            en: '',
+          },
+          description: '',
+          detailInfo: {
+            actionImgUrlInfo: {
+              default: '',
+              move: '',
+              attack: '',
+            },
+          }
         }
       ]
-            
     }
   ]
 };
