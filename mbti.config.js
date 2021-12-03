@@ -35,8 +35,25 @@ module.exports = {
   // TODO: collection 구성 생성
   testList: [
     {
-      step: '',
+      step: '1',
       type: '에너지 방향',
+      questionList: [
+        {
+          question: {
+            kr: '',
+            en: ''
+          },
+          answerList: [
+            {
+              seq: '',
+              answer: {
+                kr: '',
+                en: ''
+              }
+            }
+          ]
+        }
+      ]
     }
   ],
   environmentList: [], // TODO: 추후 추가 사항
