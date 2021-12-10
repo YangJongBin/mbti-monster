@@ -1,7 +1,7 @@
 import { AxiosResponse, AxiosError } from 'axios';
 import { createReducer, createAction, createAsyncAction, ActionType } from 'typesafe-actions';
 
-// action type
+// 1. action type
 const INIT = 'INIT' as const;
 const INIT_REQUEST = 'INIT_REQUEST' as const;
 const INIT_SUCCESS = 'INIT_SUCCESS' as const;
@@ -12,23 +12,24 @@ interface requestPayloadType {}
 
 interface successPayloadType {}
 
-// action func
+// 2. action func
 export const getInit = createAction(INIT, ({ ...param }) => ({ ...param }));
 
-// ready action type
+// 3. ready action type
 const actions = { getInit };
 interface InitAction = ActionType<typeof actions>;
 
-// ready state type
+// 4. ready state type
 interface InitState = {
   count: number;
 };
 
-// FIXME: state 
+// 5. FIXME: state 
 const initState: InitState = {
+  count: 0
 }
 
-// reducer
+// 6. reducer
 const reducer = createReducer<InitState, InitAction>(initState, {
   [INIT_REQUEST]: (state) => ({ count: state.count + 1 }),
 });
