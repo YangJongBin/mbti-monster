@@ -17,15 +17,19 @@ export const getInit = createAction(INIT, ({ ...param }) => ({ ...param }));
 
 // ready action type
 const actions = { getInit };
-type InitAction = ActionType<typeof actions>;
+interface InitAction = ActionType<typeof actions>;
 
 // ready state type
-interface initState = {
+interface InitState = {
   count: number;
 };
 
+// FIXME: state 
+const initState: InitState = {
+}
+
 // reducer
-const reducer = createReducer<initState, InitAction>(initState, {
+const reducer = createReducer<InitState, InitAction>(initState, {
   [INIT_REQUEST]: (state) => ({ count: state.count + 1 }),
 });
 
