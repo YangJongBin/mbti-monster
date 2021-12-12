@@ -1,24 +1,32 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import { StyleSheet, Text, View, Dimensions, Button } from 'react-native';
+import { useSelector } from 'react-redux';
 
-interface Props {
-    
+// action
+import { getInit } from '../modules/init';
+
+interface Props {}
+
+function Home(props: Props) {
+  const { width, height } = Dimensions.get('screen');
+  const count = useSelector((state) => state.counter.count);
+
+  return (
+    <View style={[styles.container, { marginTop: 100 }]}>
+      <Text>{count}</Text>
+      <Button title={'COUNT'} onPress={() => getInit()}>
+        {' '}
+      </Button>
+    </View>
+  );
 }
 
-const Home = (props: Props) => {
-    return (
-        <View style={styles.container}>
-            <Text>Hellow </Text>
-        </View>
-    )
-}
-
-export default Home
+export default Home;
 
 const styles = StyleSheet.create({
-    container: {
-        width: '100%',
-        height: '100%',
-        backgroundColor:'white'
-    }
-})
+  container: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'white',
+  },
+});

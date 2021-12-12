@@ -17,21 +17,24 @@ export const getInit = createAction(INIT, ({ ...param }) => ({ ...param }));
 
 // 3. ready action type
 const actions = { getInit };
-interface InitAction = ActionType<typeof actions>;
+export type InitAction = ActionType<typeof actions>;
 
 // 4. ready state type
-interface InitState = {
+export type InitState = {
   count: number;
 };
 
-// 5. FIXME: state 
+// 5. FIXME: state
 const initState: InitState = {
-  count: 0
-}
+  count: 1,
+};
 
 // 6. reducer
-const reducer = createReducer<InitState, InitAction>(initState, {
-  [INIT_REQUEST]: (state) => ({ count: state.count + 1 }),
+const counter = createReducer<InitState, InitAction>(initState, {
+  [INIT_REQUEST]: (state: InitState, action: any) => ({
+    ...state,
+    count: state.count + 1,
+  }),
 });
 
-export default reducer;
+export default counter;
