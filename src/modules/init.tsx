@@ -12,17 +12,17 @@ interface RequestPayloadType {}
 interface ResponsePayloadType {}
 
 // FIXME: Async action
-export const getAsyncInit = createAsyncAction(INIT_REQUESET, INIT_SUCCESS, INIT_FAILURE)<RequestPayloadType, AxiosResponse<ResponsePayloadType>, AxiosError>;
+export const getAsyncInit = createAsyncAction(INIT_REQUEST, INIT_SUCCESS, INIT_FAILURE)<RequestPayloadType, AxiosResponse<ResponsePayloadType>, AxiosError>;
 
 // 2. action func
-export const getInit = createAction(INIT, ({ key, value }) => ({ key, value }))();
+export const getInit = createAction(INIT, ({ key, value }) => ({ key, value }));
 
 // 3. ready action type
 const actions = { getInit };
-type InitAction = ActionType<typeof actions>;
+export type InitAction = ActionType<typeof actions>;
 
 // 4. ready state type
-type InitState = {
+export type InitState = {
   value: string;
 };
 
