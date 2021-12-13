@@ -7,9 +7,12 @@ const INIT_REQUEST = 'INIT_REQUEST' as const;
 const INIT_SUCCESS = 'INIT_SUCCESS' as const;
 const INIT_FAILURE = 'INIT_FAILURE' as const;
 
-// TODO: Async action
-interface requestPayloadType {}
-interface successPayloadType {}
+// FIXME: Async action
+interface RequestPayloadType {}
+interface ResponsePayloadType {}
+
+// FIXME: Async action
+export const getAsyncInit = createAsyncAction(INIT_REQUESET, INIT_SUCCESS, INIT_FAILURE)<RequestPayloadType, AxiosResponse<ResponsePayloadType>, AxiosError>;
 
 // 2. action func
 export const getInit = createAction(INIT, ({ key, value }) => ({ key, value }))();
