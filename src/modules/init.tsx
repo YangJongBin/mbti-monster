@@ -7,9 +7,8 @@ const INIT_REQUEST = 'INIT_REQUEST' as const;
 const INIT_SUCCESS = 'INIT_SUCCESS' as const;
 const INIT_FAILURE = 'INIT_FAILURE' as const;
 
-// FIXME: 여기서 interface의 의미, 용도가 뭐야?
+// TODO: Async action
 interface requestPayloadType {}
-
 interface successPayloadType {}
 
 // 2. action func
@@ -17,24 +16,24 @@ export const getInit = createAction(INIT, ({ ...param }) => ({ ...param }));
 
 // 3. ready action type
 const actions = { getInit };
-export type InitAction = ActionType<typeof actions>;
+type InitAction = ActionType<typeof actions>;
 
 // 4. ready state type
-export type InitState = {
-  count: number;
+type InitState = {
+  value: string;
 };
 
-// 5. FIXME: state
+// 5. state
 const initState: InitState = {
-  count: 1,
+  value: 'Hi, Redux',
 };
 
 // 6. reducer
-const counter = createReducer<InitState, InitAction>(initState, {
+const initReducer = createReducer<InitState, InitAction>(initState, {
   [INIT_REQUEST]: (state: InitState, action: any) => ({
     ...state,
-    count: state.count + 1,
+    value: state.value,
   }),
 });
 
-export default counter;
+export default initReducer;
