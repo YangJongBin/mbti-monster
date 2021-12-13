@@ -32,11 +32,11 @@ const initState: InitState = {
 };
 
 // 6. reducer
-const initReducer = createReducer<InitState, InitAction>(initState, {
+const reducer = createReducer<InitState, InitAction>(initState, {
   [INIT_REQUEST]: (state: InitState, action: any) => ({
     ...state,
     value: state.value,
   }),
 });
 
-export default initReducer;
+export default reducer;
