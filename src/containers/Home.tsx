@@ -9,14 +9,12 @@ interface Props {}
 
 function Home(props: Props) {
   const { width, height } = Dimensions.get('screen');
-  const count = useSelector((state) => state.counter.count);
+  const initValue = useSelector((state) => state.init.value);
 
   return (
     <View style={[styles.container, { marginTop: 100 }]}>
-      <Text>{count}</Text>
-      <Button title={'COUNT'} onPress={() => getInit()}>
-        {' '}
-      </Button>
+      <Text>{initValue}</Text>
+      <Button title={'COUNT'} onPress={() => getInit()}></Button>
     </View>
   );
 }
