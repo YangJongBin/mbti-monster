@@ -12,7 +12,7 @@ interface requestPayloadType {}
 interface successPayloadType {}
 
 // 2. action func
-export const getInit = createAction(INIT, ({ ...param }) => ({ ...param }));
+export const getInit = createAction(INIT, ({ key, value }) => ({ key, value }))();
 
 // 3. ready action type
 const actions = { getInit };
