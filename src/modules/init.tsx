@@ -2,24 +2,28 @@ import { AxiosResponse, AxiosError } from 'axios';
 import { createReducer, createAction, createAsyncAction, ActionType } from 'typesafe-actions';
 
 // 1. action type
-const INIT = 'INIT' as const;
-const INIT_REQUEST = 'INIT_REQUEST' as const;
-const INIT_SUCCESS = 'INIT_SUCCESS' as const;
-const INIT_FAILURE = 'INIT_FAILURE' as const;
+export const INIT = 'INIT' as const;
+export const INIT_REQUEST = 'INIT_REQUEST' as const;
+export const INIT_SUCCESS = 'INIT_SUCCESS' as const;
+export const INIT_FAILURE = 'INIT_FAILURE' as const;
 
 // FIXME: Async action
 interface RequestPayloadType {}
 interface ResponsePayloadType {}
 
 // FIXME: Async action
-export const getAsyncInit = createAsyncAction(INIT_REQUEST, INIT_SUCCESS, INIT_FAILURE)<RequestPayloadType, AxiosResponse<ResponsePayloadType>, AxiosError>;
+export const getAsyncInit = createAsyncAction(INIT_REQUEST, INIT_SUCCESS, INIT_FAILURE)<
+  RequestPayloadType,
+  AxiosResponse<ResponsePayloadType>,
+  AxiosError
+>();
 
 // 2. action func
-export const getInit = createAction(INIT, ({ key, value }) => ({ key, value }));
+export const getInit = createAction(INIT, (value: string) => value)();
 
 // 3. ready action type
 const actions = { getInit };
-export type InitAction = ActionType<typeof actions>;
+type InitAction = ActionType<typeof actions>;
 
 // 4. ready state type
 export type InitState = {
@@ -28,14 +32,13 @@ export type InitState = {
 
 // 5. state
 const initState: InitState = {
-  value: 'Hi, Redux',
+  value: 'Hi Redux!',
 };
 
 // 6. reducer
 const reducer = createReducer<InitState, InitAction>(initState, {
-  [INIT_REQUEST]: (state: InitState, action: any) => ({
-    ...state,
-    value: state.value,
+  [INIT]: (state, action) => ({
+    value: state.value + ' success',
   }),
 });
 

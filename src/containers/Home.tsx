@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Button } from 'react-native';
-import { useSelector } from 'react-redux';
+import { StyleSheet, Text, View, Dimensions, Button, Alert } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 
 // action
 import { getInit } from '../modules/init';
@@ -10,11 +10,17 @@ interface Props {}
 function Home(props: Props) {
   const { width, height } = Dimensions.get('screen');
   const initValue = useSelector((state) => state.init.value);
+  const dispatch = useDispatch();
 
   return (
     <View style={[styles.container, { marginTop: 100 }]}>
       <Text>{initValue}</Text>
-      <Button title={'COUNT'} onPress={() => getInit()}></Button>
+      <Button
+        title={'REDUX'}
+        onPress={() => {
+          dispatch(getInit('Success'));
+        }}
+      ></Button>
     </View>
   );
 }
